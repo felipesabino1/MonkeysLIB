@@ -1,0 +1,213 @@
+\chapter{Miscellaneous}
+    \section{Game Theory}
+        Pontos importantes:
+        \begin{itemize}
+            \item \textit{Teoria do Espelhamento}: Se o seu oponente pode espelhar todas as suas ações, este é um estado de derrota.
+            \item Dois nim games são combinados usando o XOR.
+            \item Podem existir ciclos modulares, vale brutar.
+            \item Em algum momento pode se tornar sempre win, ou sempre loss.
+            \item Se a gente transformar o problema num nim, podemos usar o teorema de grundy, que basicamente é achar os casos derrota + fazer o mex.
+        \end{itemize}
+        
+        Example 1:
+
+        There is a heap of $n$ coins and two players who move alternately. On each move, a player chooses a heap and divides into two nonempty heaps that have a different number of coins. The player who makes the last move wins the game.
+
+        Here for big N the answer is always first.
+
+        
+    \lstinputlisting{./solutions/Miscellaneous/GrundyGame.cpp}
+
+        Example 2:
+
+        There is a staircase consisting of $n$ stairs, numbered $1,2,\ldots,n$. Initially, each stair has some number of balls.
+
+        There are two players who move alternately. On each move, a player chooses a stair $k$ where $k\neq1$ and it has at least one ball. Then, the player moves any number of balls from stair $k$ to stair $k-1$. The player who moves last wins the game.
+
+        Here, every odd position is losing, u can see them as "dark holes", using the "Teoria do Espelhamento", so it's just N/2 Nim games.
+
+        
+    \lstinputlisting{./solutions/Miscellaneous/StairGame.cpp}
+
+    \subsection{Nim Multiplication}
+        A 2D NIM Game int the form of NXM can be reduced
+        to the Nim Multiplication of 2 1D NIM GAMES
+        in the form of NimMult(Grundy(N),Grundy(M))
+        
+        \lstinputlisting{./solutions/Miscellaneous/NimMult.cpp}
+\section{Binary Search}
+    \subsection{Parallel Binary Search}
+    (Original Problem: Atcoder Grand Contest 2 D)
+     \lstinputlisting{./solutions/Miscellaneous/agc002_d.cpp}
+% \section{Next\_Permutation - C++}
+%     \lstinputlisting{./solutions/Miscellaneous/next_permutation.cpp}
+\section{Big Num}
+    Implementação de Big Number em C++.
+        \lstinputlisting{./solutions/Miscellaneous/bignum.cpp}
+    \subsection{D\&C for Multiplyng two big numbers}
+        \lstinputlisting{./solutions/Miscellaneous/karatsuba.cpp}
+
+\section{Bitsets}
+Some $O(N^2)$ solutions can be optimized using bitsets. Mainly knapsack problems.
+An important point is to use the "popcount" optimization  in target of pragma.
+
+how to initialize:
+
+\begin{lstlisting}
+bitset<size> variable_name;
+bitset<size> variable_name(DECIMAL_NUMBER);
+bitset<size> variable_name("BINARY_STRING")
+\end{lstlisting}
+
+Every position can be accessed as a vector, also size must be constant. We get an constant optimization of 32. every bit operation used in integers can be used in bitsets.
+
+Some functions in bitsets:
+\begin{center}
+\begin{tabular}{ c | l }
+  set()  & Set the bit value at all bitset to 1.  \\ 
+ reset() & Set the bit value at all bitset to 0.  \\  
+ flip() & Flip the bit value at all bitset.\\
+ set(idx) & Set the bit value at the given idx to 1.  \\ 
+ reset(idx) & Set the bit value at a given idx to 0.  \\  
+ flip(idx) & Flip the bit value at the given idx.\\
+ count() & Count the quantity of bits set.\\  
+ any() & Checks if any bit is set.\\
+ all() & Check if all bit is set.\\
+ none() & Checks if none bit is set.\\
+ size() & Returns the size of the bitset.\\
+ to\_string() & Converts bitset to std::string.\\
+ to\_ulong() & Converts bitset to unsigned long.\\
+ to\_ullong() & Converts bitset to unsigned long long.\\
+ \_Find\_first() & return index of first bit set. \\
+ \_Find\_next(idx) & return index of first bit set after idx.
+\end{tabular}
+\end{center}
+
+\section{Built in functions}
+
+Some Built in functions in GCC(remember that if u are using ll, need to add ll at the end):
+\begin{center}
+\begin{tabular}{ c | l }
+  \_\_builtin\_popcount(x)  & Counts the quantity of one’s(set bits) in an integer.  \\ 
+ \_\_builtin\_parity(x) & Checks the Parity of a integer.\\
+ 
+ &Returns true(1) if odd parity(odd quantity of set bits)\\
+ 
+ & Returns false(0) for even parity(even quantity of set bits).  \\  
+ \_\_builtin\_clz(x) &  Counts the leading quantity of zeros of the integer.\\
+ \_\_builtin\_ctz(x) & Counts the trailing quantity of zeros of the integer.  \\ 
+ \_\_builtin\_popcountll(x)  & Counts the quantity of one’s(set bits) in an long long.  \\ 
+ \_\_builtin\_parityll(x) & Checks the Parity of a long long.\\
+ 
+ &Returns true(1) if odd parity(odd quantity of set bits)\\
+ 
+ & Returns false(0) for even parity(even quantity of set bits).  \\   
+ \_\_builtin\_clzll(x) &  Counts the leading quantity of zeros of the long long.\\
+ \_\_builtin\_ctzll(x) & Counts the trailing quantity of zeros of the long long.  \\ 
+\end{tabular}
+\end{center}
+clz can be used to find the first set bit, since u can use:
+\begin{lstlisting}
+int x;
+ll xl;
+int fsi =  31 - __builtin_clz(x);
+int fsll = 63 - __builtin_clzll(xl);
+\end{lstlisting}
+\section{Priority Queue and Set Comparators}
+
+Set Comparators
+Operator Overloading:
+\begin{lstlisting}
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Edge {
+	int a, b, w;
+	bool operator<(const Edge &y) const { return w < y.w; }
+};
+
+int main() {
+	int M = 4;
+	set<Edge> v;
+	for (int i = 0; i < M; ++i) {
+		int a, b, w;
+		cin >> a >> b >> w;
+		v.insert({a, b, w});
+	}
+	for (Edge e : v) cout << e.a << " " << e.b << " " << e.w << "\n";
+}
+\end{lstlisting}
+Functors:
+
+\begin{lstlisting}
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Edge {
+	int a, b, w;
+};
+
+struct cmp {
+	bool operator()(const Edge &x, const Edge &y) const { return x.w < y.w; }
+};
+
+int main() {
+	int M = 4;
+	set<Edge, cmp> v;
+	for (int i = 0; i < M; ++i) {
+		int a, b, w;
+		cin >> a >> b >> w;
+		v.insert({a, b, w});
+	}
+	for (Edge e : v) cout << e.a << " " << e.b << " " << e.w << "\n";
+}
+\end{lstlisting}
+
+Functors can also be used in priority queues, but needs vector as a container:
+
+\begin{lstlisting}
+priority_queue<int, vector<int>, cmp> c; 
+\end{lstlisting}
+Built in Functors:
+\begin{lstlisting}
+set<int, greater<int>> a; //max set
+map<int, string, greater<int>> b; // max map
+priority_queue<int, vector<int>, greater<int>> c; // min heap
+\end{lstlisting}
+\section{Lambda Expressions}
+Basic Lambda Syntax
+    A lambda expression consists of the following:
+\begin{center}
+    [capture list] (parameter list) {function body}
+\end{center}
+The capture list and parameter list can be empty, so the following is a valid lambda:
+\begin{lstlisting}
+[](){cout << "Hello, world!" << endl;}
+auto func1 = [](int i) {cout << ":" << i << ":";};
+func1(x);
+\end{lstlisting}
+Using \& in capture list it will have access to the scope.
+
+Recursive lambda using function:
+\begin{lstlisting}
+int main() {
+	function<int(int, int)> gcd = [&](int a, int b) {
+		return b == 0 ? a : gcd(b, a % b);
+	};
+	cout << gcd(20, 30) << '\n';  // outputs 10
+}
+\end{lstlisting}
+    
+\section{Fast input output}
+        \lstinputlisting{./solutions/Miscellaneous/IOPT.cpp}
+\section{Trick for faster Unordered Map}
+        \lstinputlisting{./solutions/Miscellaneous/umap.cpp}
+\section{Faster Hash Table}
+    \lstinputlisting{./solutions/Miscellaneous/hashtablerobada.cpp}
+\section{StringStream}
+    A way to parse strings in c++.
+    \lstinputlisting{./solutions/Miscellaneous/stringstream.cpp}
+\section{Karmarkar-Karp}
+    Heuristic algorithm to divide a set in two others set, in the way that the difference between the sum of this two new sets will be minimal.
+    The error of this heuristc algorithm is $\mathcal{O}(n^{-lg(n)})=\mathcal{O}(\frac{1}{n^{lg(n)}})$
+    \lstinputlisting{./solutions/Miscellaneous/karmakarp.cpp}

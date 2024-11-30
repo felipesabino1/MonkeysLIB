@@ -1,0 +1,106 @@
+\chapter{Segment Tree}
+    Era uma seção, mas tem tanta coisa que virou um capitulo.
+    \section{Sem Lazy}
+    \lstinputlisting{./solutions/DataStructures/Segtree/segtree.cpp}
+
+    \section{Com Lazy}
+    \lstinputlisting{./solutions/DataStructures/Segtree/segtreelazy.cpp}
+
+    Versão que o Sabino gosta
+    \lstinputlisting{./solutions/DataStructures/Segtree/segtreelazy2.cpp}
+   
+    % \section{2D}
+    \section{Implicita}
+    Essa eu roubei do tiagodfs XD
+    \lstinputlisting{./solutions/DataStructures/Segtree/implicityseg.cpp}
+    
+    \section{Implicita com lazy}
+    \lstinputlisting{./solutions/DataStructures/Segtree/implicityseglazy.cpp}
+    
+    \section{Persistente}
+    Solution for Spoj Count on a Tree,
+    Given a tree there are $Q$ queries where you need to find the $k$th minimum weigth in a path between $u$ and $v$, it also needs the lca and lca's father between $u$ and $v$.\newline
+    Main idea is to build a segment tree for each node with a dfs starting from the root.
+    
+    Queries in $O(log(n))$
+
+    Pra iniciar da $build(1,1,n)$.
+    todo update tem que ter uma head nova. o last representa o ultimo id livre.
+    
+    \lstinputlisting{./solutions/DataStructures/Segtree/persistent_segtree.cpp}
+    \section{update é uma PA}
+    Nessa seg o update é uma PA que começa com $V$ na posição $L$ e vira $V + R-L+1$ na posição $R$.
+    A sacada é que da pra juntar multiplas PAs só aumento o coeficiente $r$, lembrando que:
+    
+    $an = a_1 + r \cdot (n-1)$
+    
+    $sn = (a_1 + a_n) \cdot (n) / 2$
+
+    \lstinputlisting{./solutions/DataStructures/Segtree/pasegtree.cpp}
+    \section{Sub-segmento contiguo com maior soma}
+
+    Nessa a query é achar o subsegmento contíguo com maior soma numa range $[L,R]$
+
+    O update é mudar o valor de um ponto.
+    \lstinputlisting{./solutions/DataStructures/Segtree/subarrayseg.cpp}
+
+    \section{Contar minimos (união de area de retangulos)}
+
+    We would like a data structure that can efficiently handle two types of operations:
+
+    Update index $i$ to value $v$
+    Report the minimum and the number of occurences of the minimum on a range $[l, r]$
+    
+    
+    We can use a normal segment tree to handle range queries, but slightly modify each node and the merge operation. Let each node be a pair of values $(\texttt{val}, \texttt{cnt})$, where $\texttt{val}$ is the minimum value and $\texttt{cnt}$ is the number occurences of the minimum value.
+    
+    If node $c$ has two children $a$ and $b$, then
+    
+    if $a.\texttt{val} < b.\texttt{val}$, then $c = a$
+    if $a.\texttt{val} > b.\texttt{val}$, then $c = b$
+    if $a.\texttt{val} = b.\texttt{val}$, then $c = \{a.\texttt{val}, a.\texttt{cnt} + b.\texttt{cnt}\}$
+
+    O problema clássico é unir a área de vários retângulos. O codigo faz esse.
+    
+    \lstinputlisting{./solutions/DataStructures/Segtree/AreaofRectangles.cpp}
+
+    \section{Merge Sort Tree}
+
+    Very strong Data Structure to answer queries but u can't do updates.
+
+    A problem of this kind is something like that: You have an array and want to answer some queries on it:
+    \begin{itemize}
+        \item Given $l, r, x$ $(l \le x \le r)$, how many elements in this range are greater than $x$?
+    \end{itemize}
+
+    The idea is that each node of your tree is an array of elements now, and you will maintain a sorted array in each node. To answer the query, one must do a binary search in each node of the range to find how many of the elements are greater than $x$. Time complexity of this is $\mathcal{O}(n\log^2(n))$
+
+    \lstinputlisting{./solutions/DataStructures/Segtree/MergeSortTree.cpp}  
+    
+    \section{Segment Tree Beats}
+    updates:
+    
+    min(a[i],x) - range l - r
+    
+    max(a[i],x) - range l - r
+    
+    a[i]+=x - range l - r
+    
+    Query
+    
+    sum ai - range l-r
+    
+    $O(N*log(N)^2)$
+    \lstinputlisting{./solutions/DataStructures/Segtree/segbeats.cpp}
+    \section{Wavelet Tree}
+    Encontra o kth menor valor num range [L,R] com queries em O(log n)
+    
+    Espaço e pre-processamento é em O(n log n)
+    
+    isso é do kataki e tecnicamente é uma seg tree
+    
+    \textbf{p} é o L e \textbf{q} é o R na query
+    
+    o resto aceita que funciona
+    
+    \lstinputlisting{./solutions/DataStructures/Segtree/wavelet_tree.cpp}
