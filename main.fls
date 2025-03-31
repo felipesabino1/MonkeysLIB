@@ -790,6 +790,9 @@ INPUT solutions\Miscellaneous\stringstream.cpp
 INPUT .\solutions\Miscellaneous\karmakarp.cpp
 INPUT .\solutions\Miscellaneous\karmakarp.cpp
 INPUT solutions\Miscellaneous\karmakarp.cpp
+INPUT .\solutions\Miscellaneous\fractions.cpp
+INPUT .\solutions\Miscellaneous\fractions.cpp
+INPUT solutions\Miscellaneous\fractions.cpp
 INPUT main.aux
 INPUT .\Chapters\1.Begin.aux
 INPUT .\Chapters\1.Begin.aux

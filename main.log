@@ -462,12 +462,12 @@ Package hyperref Info: Link coloring ON on input line 58.
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-<t8.png, id=635, 518.6878pt x 423.08063pt>
+<t8.png, id=639, 518.6878pt x 423.08063pt>
 File: t8.png Graphic file (type png)
 <use t8.png>
 Package pdftex.def Info: t8.png  used on input line 61.
 (pdftex.def)             Requested size: 142.26378pt x 116.04088pt.
-<UFG_LOGO.png, id=637, 223.3143pt x 156.585pt>
+<UFG_LOGO.png, id=641, 223.3143pt x 156.585pt>
 File: UFG_LOGO.png Graphic file (type png)
 <use UFG_LOGO.png>
 Package pdftex.def Info: UFG_LOGO.png  used on input line 68.
@@ -520,12 +520,12 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on in
 [7]) (solutions/terminaltrick)
 
 [8]
-<imgs/leidossenos.png, id=908, 258.21469pt x 299.61937pt>
+<imgs/leidossenos.png, id=913, 258.21469pt x 299.61937pt>
 File: imgs/leidossenos.png Graphic file (type png)
 <use imgs/leidossenos.png>
 Package pdftex.def Info: imgs/leidossenos.png  used on input line 139.
 (pdftex.def)             Requested size: 180.74904pt x 209.73212pt.
-<imgs/leidoscosenos.png, id=909, 265.74281pt x 326.72063pt>
+<imgs/leidoscosenos.png, id=914, 265.74281pt x 326.72063pt>
 File: imgs/leidoscosenos.png Graphic file (type png)
 <use imgs/leidoscosenos.png>
 Package pdftex.def Info: imgs/leidoscosenos.png  used on input line 144.
@@ -1118,7 +1118,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [138]) (solutions/Graph/articulation.cpp
 
 [139])
-<imgs/bicomp.png, id=8465, 220.825pt x 160.6pt>
+<imgs/bicomp.png, id=8470, 220.825pt x 160.6pt>
 File: imgs/bicomp.png Graphic file (type png)
 <use imgs/bicomp.png>
 Package pdftex.def Info: imgs/bicomp.png  used on input line 174.
@@ -1275,4 +1275,212 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 [176])
-<imgs/arclength.png, id=10803, 365.2044pt x
+<imgs/arclength.png, id=10808, 365.2044pt x 339.1872pt>
+File: imgs/arclength.png Graphic file (type png)
+<use imgs/arclength.png>
+Package pdftex.def Info: imgs/arclength.png  used on input line 25.
+(pdftex.def)             Requested size: 182.60175pt x 169.59319pt.
+
+
+[177]
+<imgs/internal1.png, id=10870, 307.1475pt x 294.09875pt>
+File: imgs/internal1.png Graphic file (type png)
+<use imgs/internal1.png>
+Package pdftex.def Info: imgs/internal1.png  used on input line 73.
+(pdftex.def)             Requested size: 153.57336pt x 147.04901pt.
+<imgs/internal2.png, id=10871, 200.75pt x 170.6375pt>
+File: imgs/internal2.png Graphic file (type png)
+<use imgs/internal2.png>
+Package pdftex.def Info: imgs/internal2.png  used on input line 77.
+(pdftex.def)             Requested size: 100.37474pt x 85.31853pt.
+
+
+[178 <./imgs/arclength.png> <./imgs/internal1.png> <./imgs/internal2.png>]
+<imgs/external1.png, id=10914, 316.18124pt x 176.66pt>
+File: imgs/external1.png Graphic file (type png)
+<use imgs/external1.png>
+Package pdftex.def Info: imgs/external1.png  used on input line 88.
+(pdftex.def)             Requested size: 158.09023pt x 88.32977pt.
+<imgs/external2.png, id=10915, 242.9075pt x 229.85875pt>
+File: imgs/external2.png Graphic file (type png)
+<use imgs/external2.png>
+Package pdftex.def Info: imgs/external2.png  used on input line 92.
+(pdftex.def)             Requested size: 121.45345pt x 114.92908pt.
+<imgs/circumcenter.png, id=10916, 161.10187pt x 161.10187pt>
+File: imgs/circumcenter.png Graphic file (type png)
+<use imgs/circumcenter.png>
+Package pdftex.def Info: imgs/circumcenter.png  used on input line 127.
+(pdftex.def)             Requested size: 161.10147pt x 161.10147pt.
+
+Overfull \hbox (11.50117pt too wide) in paragraph at lines 127--128
+ [][] 
+ []
+
+<imgs/mec.png, id=10917, 602.25pt x 602.25pt>
+File: imgs/mec.png Graphic file (type png)
+<use imgs/mec.png>
+Package pdftex.def Info: imgs/mec.png  used on input line 131.
+(pdftex.def)             Requested size: 301.12425pt x 301.12425pt.
+
+
+[179 <./imgs/external1.png> <./imgs/external2.png> <./imgs/circumcenter.png> <./imgs/mec.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 169--170
+
+ []
+
+
+Overfull \hbox (412.37285pt too wide) in paragraph at lines 171--192
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 171--192
+
+ []
+
+(solutions/Geometry/MaxDistanceBetweenPoints.cpp
+
+[180]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[181]) (solutions/Geometry/PointsInsideTriangles.cpp
+
+[182]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[183]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[184]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[185])
+
+[186] (solutions/Geometry/RankingProblem.cpp
+
+[187])
+
+[188] (solutions/Geometry/WaterFalls.cpp
+
+[189]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[190]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[191])
+
+[192] (solutions/Geometry/PointsInsideConvexPolygonOn.cpp
+
+[193]) (solutions/Geometry/RadialSweep.cpp
+
+[194]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[195]) (solutions/Geometry/SeeingTheBoundary.cpp
+
+[196]) (solutions/Geometry/MinPerimeterTriangle.cpp
+
+[197]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[198]))
+
+[199]
+\openout2 = `Chapters/10.Miscellaneous.aux'.
+
+ (Chapters/10.Miscellaneous.tex
+
+[200
+
+
+
+
+]
+Cap\'{\i }tulo X.
+(solutions/Miscellaneous/GrundyGame.cpp
+
+[201]) (solutions/Miscellaneous/StairGame.cpp) (solutions/Miscellaneous/NimMult.cpp
+
+[202]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[203]) (solutions/Miscellaneous/agc002_d.cpp
+
+[204]) (solutions/Miscellaneous/bignum.cpp
+
+[205]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[206]) (solutions/Miscellaneous/karatsuba.cpp
+
+[207])
+Underfull \vbox (badness 7888) has occurred while \output is active []
+
+
+
+[208]
+
+[209] (solutions/Miscellaneous/IOPT.cpp
+
+[210]) (solutions/Miscellaneous/umap.cpp) (solutions/Miscellaneous/hashtablerobada.cpp
+
+[211]) (solutions/Miscellaneous/stringstream.cpp)
+
+[212] (solutions/Miscellaneous/karmakarp.cpp) (solutions/Miscellaneous/fractions.cpp
+
+[213]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[214]))
+
+[215] (main.aux (Chapters/1.Begin.aux) (Chapters/2.Algebra.aux) (Chapters/3.DataStructures.aux) (Chapters/4.SegmentTree.aux) (Chapters/5.DynamicProgramming.aux) (Chapters/6.Strings.aux) (Chapters/7.Graph.aux) (Chapters/8.Trees.aux) (Chapters/9.Geometry.aux) (Chapters/10.Miscellaneous.aux))
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 15.12pt have occurred.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 61DC0F0E923738C32F25023826E4ECCC;22396.
+ ) 
+Here is how much of TeX's memory you used:
+ 30285 strings out of 473523
+ 498308 string characters out of 5714630
+ 1920811 words of memory out of 5000000
+ 41228 multiletter control sequences out of 15000+600000
+ 573479 words of font info for 92 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 75i,13n,79p,697b,1248s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\felip\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tctt1095.pk> <C:\Users\felip\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsl10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/felip/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (215 pages, 3134141 bytes).
+PDF statistics:
+ 15434 PDF objects out of 18468 (max. 8388607)
+ 11622 named destinations out of 12825 (max. 500000)
+ 1333 words of extra memory for PDF output out of 10000 (max. 10000000)
+
