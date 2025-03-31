@@ -1,82 +1,87 @@
-const int N = 100100;
-const int K = 450;
-ll a[N];
-int n, q;
-namespace mo
-{
-    struct query
-    {
-        int idx, l, r;
-    };
-    int block;
-    vector<query> queries;
-    vector<int> ans;
+/*
+    Indexado de 1 (os l e r). O K = N/sqrt(Q), tal que N eh o maior range dos valores de l e r e Q o numero de queries
 
-    bool cmp(query x, query y)
-    {
-        if (x.l / K != y.l / K)
-            return x.l / K < y.l / K;
-        if((x.l / K)&1)
-            return x.r > y.r;
-        return x.r < y.r;
+    Alteracoes:
+
+    Ver como calcula a query
+    Ler as queries
+    Ver como imprime a resposta
+    Ver as funcoes de add e rmv do mo
+*/
+template <class TT = int>
+struct Mo{
+    const int K = 450;
+
+    struct query{
+        int idx,l,r;
+
+        bool operator <(const query &o){
+            if(l/K == o.l/K){
+                if((l/K)&1) return r>o.r;
+                return r<o.r;
+            }
+            return l/K < o.l/K;
+        }
+    };
+
+	vector<query> q;
+	vector<TT> ans;
+
+    // qtd de queries
+    Mo(int n_q){
+        q.resize(n_q);
     }
-    void run()
-    {
-        sort(queries.begin(), queries.end(), cmp);
-        ans.resize(queries.size());
-        int cl = 0, cr = -1;
-        ll sum = 0;
-        auto add = [&](ll x)
-        {
-            sum += x;
-        };
-        auto rem = [&](ll x)
-        {
-            sum -= x;
-        };
-        for (int i = 0; i < queries.size(); i++)
-        {
-            while (cl > queries[i].l)
-            {
-                cl--;
-                add(a[cl]);
-            }
-            while (cr < queries[i].r)
-            {
-                cr++;
-                add(a[cr]);
-            }
-            while (cl < queries[i].l)
-            {
-                rem(a[cl]);
-                cl++;
-            }
-            while (cr > queries[i].r)
-            {
-                rem(a[cr]);
-                cr--;
-            }
-            ans[queries[i].idx] = sum;
+
+
+    // adiciona na posicao x
+	void add(int x){
+        
+    }
+
+    // remove na posicao x
+	void rmv(int x){
+
+    }
+
+    // calcula a resposta pra query
+	TT calc(){
+
+    }
+
+	void solve(){
+		sort(q.begin(),q.end());
+		ans.resize(q.size());
+		int i,j;
+		i=1;
+		j=0;
+        for(auto [idx,l,r] : q){
+			while(j < r){
+				add(++j);
+			}
+			while(i > l){
+				add(--i);
+			}
+
+			while(j > r){
+				rmv(j--);
+			}
+			while(i < l){
+				rmv(i++);
+			}
+
+			ans[idx]=calc();
+		}
+	}
+
+    // ler as queries
+    void ler(){
+        for(int i=0; i<q.size(); i++) {
+            cin >> q[i].l >> q[i].r;
+            q[i].idx=i;
         }
     }
-}
-signed main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    cin >> n >> q;
-    for (int i = 0; i < n; i++)
-        cin >> a[i];
-    for (int i = 0; i < q; i++)
-    {
-        mo::query curr;
-        cin >> curr.l >> curr.r;
-        curr.l--;
-        curr.r--;
-        curr.idx = i;
-        mo::queries.pb(curr);
-    }
-    mo::run();
-    for (auto const &i : mo::ans)
-        cout << i << endl;
-}
+
+	void show(){
+        // imprime a resposta
+	}
+};

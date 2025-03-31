@@ -1,126 +1,131 @@
-//https://www.spoj.com/problems/LIM/en/
-#include <bits/stdc++.h>
+struct Gauss{
+    typedef vector<double> vd;
+    typedef vector<long long int> vl;
+    typedef vector<int> vi;
+    const double eps = 1e-12;
 
-using namespace std;
+    /**
+    * Author: Per Austrin, Simon Lindholm
+    * Date: 2004-02-08
+    * License: CC0
+    * Description: Solves $A * x = b$. If there are multiple solutions, an arbitrary one is returned.
+    *  Returns rank, or -1 if no solutions. Data in $A$ and $b$ is lost.
+    * Time: O(n^2 m)
+    * Status: tested on kattis:equationsolver, and bruteforce-tested mod 3 and 5 for n,m <= 3
+    */
+    int solveLinear(vector<vd>& A, vd& b, vd& x) {
+        int n = A.size(), m = x.size(), rank = 0, br, bc;
+        if (n) assert(A[0].size() == m);
+        vi col(m); iota(col.begin(),col.end(), 0); // fills the range with increasing values starting with value 0
 
-typedef long long   ll;
+        for(int i = 0; i < n; i++){
+            double v, bv = 0;
 
-const double EPS = 1e-9;
-const int INF = 2;
-
-int gauss(vector< vector< double > > a, vector< double > &ans, bool frag = false){
-    int n = a.size();
-    int m = a[0].size() - 1;
-
-    vector< int > where(m, -1);
-    for(int col = 0, row = 0 ; col < m && row < n ; ++col){
-        int sel = row;
-        for(int i = row ; i < n ; i++){
-            if(abs(a[i][col]) > abs(a[sel][col])){
-                sel = i;
+            // busca pelo maior elemento
+            for(int r = i; r < n; r++) for(int c = i; c < m; c++)
+                if ((v = fabs(A[r][c])) > bv)
+                    br = r, bc = c, bv = v;
+            // bv eh o maior elemento, se todos os elementos sao iguais a zero
+            if (bv <= eps) {
+                // se no vetor de resposta tiver um cara diferente de zero, nao existe x tal que 0*x != 0
+                for(int j = i; j < n; j++) if (fabs(b[j]) > eps) return -1;
+                break;
             }
-        }
-
-        if(abs(a[sel][col]) < EPS){
-            continue;
-        }
-
-        for(int i = col ; i <= m ; i++){
-            swap(a[sel][i], a[row][i]);
-        }
-    
-        where[col] = row;
-
-        for(int i = 0 ; i < n ; i++){
-            if(i != row){
-                double c = a[i][col] / a[row][col];
-                for(int j = col ; j <= m ; j++){
-                    a[i][j] -= a[row][j] * c;
-                }
+            
+            swap(A[i], A[br]); // trocar a linha atual pela linha que tem o maior elemento
+            swap(b[i], b[br]); // trocar a linha pra ficar igual no vetor de resposta
+            swap(col[i], col[bc]); // trocar no vetor de coluna
+            for(int j = 0; j < n; j++) swap(A[j][i], A[j][bc]); // trocar os elementos da coluna atual pelos elementos da coluna do maior elemento
+            
+            bv = 1/A[i][i]; // a razao necessaria pra fazer o elemento atual da diagonal ser 1 
+            // eu nao atualizo de verdade os valores de A[i][i] e b[i] nao sei pq, deve ser pq fica mais rapido nao atualizar eles de vdd
+            for(int j = i+1; j < n; j++){
+                double fac = A[j][i] * bv; // para zerar o elemento A[j][i] precisamos subtair dele A[i][i]*(1/A[i][i] * A[j][i]) = A[i][i]*fac
+                // esse fac eh o valor que eu vou usar pra eliminar a linha j, ou seja, Linha_j <- Linha_j - Linha_i * fac, e eh isso que 
+                // ta fazendo aqui embaixo
+                b[j] -= fac * b[i];
+                for(int k = i+1; k < m; k++) A[j][k] -= fac*A[i][k];
             }
+            // se eu consegui zerar essa coluna, entao a variavel dessa coluna eh diferente de zero (eh uma equacao linearmente independente)
+            rank++;
         }
-        ++row;
+
+        x.assign(m, 0);
+        for (int i = rank; i--;) {
+            // atribuo as respostas
+            b[i] /= A[i][i];
+            x[col[i]] = b[i];
+            for(int j = 0; j < i; j++) b[j] -= A[j][i] * b[i]; // o valor da variavel x_i eu descobri agora eu desconto o valor dela nas equacoes acima
+        }
+        return rank; // (multiple solutions if rank < m)
     }
+    // tem que passar o modulo
+    template <int M> int solveLinear(vector<vl>& A, vl& b, vl& x) {
+        int n = A.size(), m = x.size(), rank = 0, br, bc;
+        if (n) assert(A[0].size() == m);
+        vi col(m); iota(col.begin(),col.end(), 0); // fills the range with increasing values starting with value 0
 
-    ans.assign(m, 0);
+        for(int i = 0; i < n; i++) for(int j = 0; j < m; j++) A[i][j] = (A[i][j]%M + M)%M;
+        for(int i = 0; i < n; i++) b[i] = (b[i]%M + M)%M;
 
-    for(int i = 0 ; i < m ; i++){
-        if(where[i] != -1){
-            ans[i] = a[where[i]][m] / a[where[i]][i];
-        }
-    }
+        for(int i = 0; i < n; i++){
+            ll v, bv = 0;
 
-    // if(frag){
-    //     cout << " res = " << ans[0] << " " << ans[1] << "\n";
-    // }
-    
-    for(int i = 0 ; i < n  ; i++){
-        double sum = 0;
-        for(int j = 0 ; j < m ; j++){
-            sum += ans[j] * a[i][j];
-        }
-
-        if(abs(sum - a[i][m]) > EPS){
-            // if(frag){
-            //     cout << " error on " << i << " " << " " << sum << " " << " " << a[i][m] << "\n";        
-            // }
-            return 0;
-        }
-    }
-
-    return 1;
-}
-
-const int N = 310;
-
-vector< int > adj[N];
-
-int main(){
-    int n;
-
-    while(scanf("%d", &n) != EOF){
-        if(n == 0) break;
-        
-        for(int i = 0 ; i < n ; i++){
-            int ui, vi;
-
-            scanf("%d %d", &ui, &vi);
-            
-            adj[ui].push_back(vi);
-            adj[vi].push_back(ui);
-        }
-
-        vector< vector< double > > q;
-
-        for(int i = 0 ; i <= 300 ; i++){
-            vector< double > a(302, 0);
-            
-            a[i] = 1;
-            
-            if(i == 300){
-                a[i + 1] = 1;
-            }else if(i <= 290){
-                for(auto u: adj[i]){
-                    if(u <= 290 || u == 300){
-                        a[u] = -(1.0 / adj[i].size());
-                        // printf("%lf\n", a[u]);
-                    }
-                }
-
+            // busca pelo maior elemento
+            for(int r = i; r < n; r++) for(int c = i; c < m; c++)
+                if ((v = A[r][c]))
+                    br = r, bc = c, bv = v;
+            // bv eh o maior elemento, se todos os elementos sao iguais a zero
+            if (bv == 0) {
+                // se no vetor de resposta tiver um cara diferente de zero, nao existe x tal que 0*x != 0
+                for(int j = i; j < n; j++) if (b[j]) return -1;
+                break;
             }
-
-            q.push_back(a);
-            adj[i].clear();
+            
+            swap(A[i], A[br]); // trocar a linha atual pela linha que tem o maior elemento
+            swap(b[i], b[br]); // trocar a linha pra ficar igual no vetor de resposta
+            swap(col[i], col[bc]); // trocar no vetor de coluna
+            for(int j = 0; j < n; j++) swap(A[j][i], A[j][bc]); // trocar os elementos da coluna atual pelos elementos da coluna do maior elemento
+            
+            bv = inv(A[i][i],M); // a razao necessaria pra fazer o elemento atual da diagonal ser 1 
+            // eu nao atualizo de verdade os valores de A[i][i] e b[i] nao sei pq, deve ser pq fica mais rapido nao atualizar eles de vdd
+            for(int j = i+1; j < n; j++){
+                ll fac = A[j][i] * bv % M; // para zerar o elemento A[j][i] precisamos subtair dele A[i][i]*(1/A[i][i] * A[j][i]) = A[i][i]*fac
+                // esse fac eh o valor que eu vou usar pra eliminar a linha j, ou seja, Linha_j <- Linha_j - Linha_i * fac, e eh isso que 
+                // ta fazendo aqui embaixo
+                b[j] = (b[j] - fac * b[i]%M + M)%M;
+                for(int k = i+1; k < m; k++) A[j][k] = (A[j][k] - fac*A[i][k]%M + M)%M;
+            }
+            // se eu consegui zerar essa coluna, entao a variavel dessa coluna eh diferente de zero (eh uma equacao linearmente independente)
+            rank++;
         }
-        // printf("aqui!\n");
-        // fflush(stdout);
-        vector< double > ans;
 
-        if((gauss(q, ans)))
-            printf("%.3lf\n", ans[0]);
-        // printf("rodei!\n");
-        // fflush(stdout);
+        x.assign(m, 0);
+        for (int i = rank; i--;) {
+            // atribuo as respostas
+            b[i] = b[i] * inv(A[i][i],M)%M;
+            x[col[i]] = b[i];
+            for(int j = 0; j < i; j++) b[j] = (b[j] - A[j][i] * b[i]%M + M)%M; // o valor da variavel x_i eu descobri agora eu desconto o valor dela nas equacoes acima
+        }
+        return rank; // (multiple solutions if rank < m)
     }
 
-    return 0;
-}
+    void show(vector<vl>& A, vl& b){
+        int n = A.size(), m = b.size();
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++) cout << A[i][j] << ' ';
+            cout << "= " << b[i] << '\n';
+        }
+    }
+
+    ll modpow(ll b, ll e, ll mod) {
+        ll ans = 1;
+        for (; e; b = b * b % mod, e /= 2)
+            if (e & 1) ans = ans * b % mod;
+        return ans;
+    }
+
+    ll inv(ll x, ll mod){
+        return modpow(x,mod-2,mod);
+    }
+};

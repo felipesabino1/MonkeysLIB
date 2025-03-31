@@ -1,29 +1,60 @@
-const int MOD = 1e9 + 7;
+const int MOD = 1'000'000'007;
 
 struct mi {
-    int v;
+    int v;  
     explicit operator int() const { return v; }
     mi() { v = 0; }
-    mi(long long _v) : v(_v % MOD) { v += (v < 0) * MOD; }
+    mi(long long int _v) : v(_v % MOD + (_v % MOD < 0) * MOD) {}
+    
+    friend mi operator -(const mi & at){
+        return mi(-at.v);
+    }
+
+    void operator +=(const mi & ot){
+        v += ot.v;
+        v -= (v >= MOD) * MOD;
+    }
+    void operator -=(const mi & ot) {
+        v -= ot.v;
+        v += (v < 0) * MOD;
+    }
+    void operator *=(const mi & ot){
+        v = 1ll * v * ot.v % MOD;
+    }
+    void operator /=(const mi & ot){
+        v = 1ll * v * inv(ot).v % MOD;
+    }
+    friend mi operator +(const mi & a, const mi & b){
+        return mi(a.v + b.v);
+    }
+    friend mi operator -(const mi & a, const mi & b){
+        return mi(a.v - b.v);
+    }
+    friend mi operator *(const mi & a, const mi & b){
+        return mi(1ll * a.v * b.v);
+    }
+    friend mi operator /(const mi & a, const mi & b){
+        return mi(1ll * a.v * inv(b).v);
+    }
+
+    friend mi fexp(mi a, long long int b){
+        mi ans(1);
+        while(b){
+            if(b&1) ans = ans*a;
+            a *= a;
+            b >>= 1;
+        }
+        return ans;
+    }
+    friend mi inv(const mi & a){
+        assert(a.v != 0);
+        return fexp(a, MOD - 2);
+    }
+
+    friend ostream& operator <<(ostream & out, const mi & at){
+        return out << at.v;
+    }
+    friend istream& operator >>(istream & in, mi & at){
+        return in >> at.v;
+    }
 };
-mi &operator+=(mi &a, mi b) {
-    if ((a.v += b.v) >= MOD) a.v -= MOD;
-    return a;
-}
-mi &operator-=(mi &a, mi b) {
-    if ((a.v -= b.v) < 0) a.v += MOD;
-    return a;
-}
-mi operator+(mi a, mi b) { return a += b; }
-mi operator-(mi a, mi b) { return a -= b; }
-mi operator*(mi a, mi b) { return mi((long long)a.v * b.v); }
-mi &operator*=(mi &a, mi b) { return a = a * b; }
-mi mypow(mi a, long long p) {
-    assert(p >= 0);
-    return p == 0 ? 1 : mypow(a * a, p / 2) * (p & 1 ? a : 1);
-}
-mi inv(mi a) {
-    assert(a.v != 0);
-    return mypow(a, MOD - 2);
-}
-mi operator/(mi a, mi b) { return a * inv(b); }

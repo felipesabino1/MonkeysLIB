@@ -61,7 +61,6 @@ void fft(vector<int> & a, bool invert) {
 }
 
 void multiply(vector<int>  &a, vector<int>  &b) {
-    // vector<ll> fa(a.begin(), a.end()), fb(b.begin(), b.end());
     if(b.size()<=30)
     {
     	vector<int> res(b.size()+a.size(),0);
@@ -80,7 +79,6 @@ void multiply(vector<int>  &a, vector<int>  &b) {
     int n = 1;
     while (n < a.size() + b.size()) 
         n <<= 1;
-    // cout<<n<<' '<<2*a.size()<<'\n';
     a.resize(n);
     b.resize(n);
 
@@ -104,7 +102,6 @@ int main(int argc, char const *argv[])
 	{
 		fat[i]=(int)(1LL*fat[i-1]*i%mod);
 	}
-	// cout<<r[0]<<'\n';
 	int q;
 	cin>>q;
 	while(q--)
@@ -119,32 +116,16 @@ int main(int argc, char const *argv[])
 			a[i][0]=(1);
 			a[i][1]=(x%mod);
 		}
-		// cout<<a[0].size()<<"\n";
-		// for (int i = 0; i <a[0].size(); ++i)
-		// {
-		// 	cout<<i<<" "<<a[0][i]<<"\n";
-		// }
-		// for (int i = 1; i < n; ++i)
-		// {
-		// 	a[0]=multiply(a[0],a[i]);
-		// 	cout<<a[0].size()<<"\n";
-		// 	for (int i = 0; i <a[0].size(); ++i)
-		// 	{
-		// 		cout<<i<<" "<<a[0][i]<<"\n";
-		// 	}
-		// }
 		for (int i = 1; i < n; i<<=1)
 		{
 			for (int j = 0; j+i < n ; j+=(i<<1))
 			{
-				// cout<<j<<" "<<j+i<<'\n';
 				multiply(a[j],a[j+i]);
 			}
 		}
 		int rs=0;
 		for (int i = 1; i <= n; ++i)
 		{
-			// cout<<a[0][i]<<" "<<i<<"\n";
 			rs += (int)(1LL*(1LL*a[0][i]*fat[i]%mod)*fat[n-i]%mod);
 			if(rs>mod)
 				rs-=mod;

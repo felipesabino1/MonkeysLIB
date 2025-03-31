@@ -1,6 +1,6 @@
 \chapter{Begin}
     \section{Who did this}
-    Sometimes saying thank you is important, this book have the name and the heart of a group, full of disagreements. We are \textbf{different} and that is what makes us \textbf{strong}. Believe in yourself, and when u can't, believe in the people which are in your side.
+    \tab Sometimes saying thank you is important, this book have the name and the heart of a group, full of disagreements. We are \textbf{different} and that is what makes us \textbf{strong}. Believe in yourself, and when u can't, believe in the people which are in your side.
 
     Thank you.
 
@@ -115,7 +115,22 @@
         \item $A = \sqrt{(p-a) \cdot (p-b) \cdot (p-c) \cdot (p-d)}$
         \item $A \rightarrow$ Maior área formada por 4 lados de um quadrilátero.
     \end{itemize}
+
+    \textit{Lagrange Multipliers:}
+
+    We want to optimize a function $f(x_1,x_2,\dots,x_n)$ subject to the constraints
+    $ g_i(x_1,x_2,\dots,x_n) = k_i$ where $1 \le i \le m$ and $m$ is the number of constraints, to solve it, we use the Method of Lagrange Multipliers. It consists in solving the following system of equations:
+
+        \[
+            \left\{
+            \begin{array}{{rcl}}
+               \nabla f(x_1,x_2,\dots,x_n) & = & \sum_{i=1}^{m} \lambda_i \nabla g_i(x_1,x_2,\dots,x_n)  \\
+                g_i(x_1,x_2,\dots,x_n)     & = & k_i \ \ \ \ \ \ \ \text{for $1 \le i \le m$}
+            \end{array}
+            \right.
+        \]
     
+    For the first equation, you derivate for each variable and solve for each derivation.
     
     \begin{figure}[ht]
     \begin{center}
@@ -132,7 +147,7 @@
     \end{center}
     \end{figure}
     \section{Stress Test}
-    During the contest, sometimes u will need to stress test an solution.
+    \tab During the contest, sometimes u will need to stress test an solution.
     the steps are:
     \begin{itemize}
         \item Code a Brute Force(do as lazy as possible, focus in not spend time coding it)
@@ -147,15 +162,12 @@
 
     \subsection{Vector Generator}
 
-    Simple vector generator (just for remembering).
-
-    Has two parameters, the quantity of elements the the biggest element.
+    \tab Simple vector generator (just for remembering). Has two parameters, the quantity of elements the the biggest element.
     
     \lstinputlisting{./solutions/gen.cpp}
     
     \subsection{Tree Generator}
-    The following code generates good trees.
-    It has two parameter, the quantity of vertices and the id of the test(used for generation).
+    \tab The following code generates good trees. It has two parameter, the quantity of vertices and the id of the test(used for generation).
 
     \lstinputlisting{./solutions/gen_tree.cpp}
 

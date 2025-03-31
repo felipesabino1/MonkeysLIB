@@ -1,24 +1,18 @@
 \chapter{Segment Tree}
-    Era uma seção, mas tem tanta coisa que virou um capitulo.
-    \section{Sem Lazy}
-    \lstinputlisting{./solutions/DataStructures/Segtree/segtree.cpp}
-
-    \section{Com Lazy}
+    \tab Era uma seção, mas tem tanta coisa que virou um capitulo.
+    \section{Sem/Com Lazy}
     \lstinputlisting{./solutions/DataStructures/Segtree/segtreelazy.cpp}
-
-    Versão que o Sabino gosta
-    \lstinputlisting{./solutions/DataStructures/Segtree/segtreelazy2.cpp}
    
     % \section{2D}
     \section{Implicita}
-    Essa eu roubei do tiagodfs XD
+    \tab Essa eu roubei do tiagodfs XD
     \lstinputlisting{./solutions/DataStructures/Segtree/implicityseg.cpp}
     
     \section{Implicita com lazy}
     \lstinputlisting{./solutions/DataStructures/Segtree/implicityseglazy.cpp}
     
     \section{Persistente}
-    Solution for Spoj Count on a Tree,
+    \tab Solution for Spoj Count on a Tree,
     Given a tree there are $Q$ queries where you need to find the $k$th minimum weigth in a path between $u$ and $v$, it also needs the lca and lca's father between $u$ and $v$.\newline
     Main idea is to build a segment tree for each node with a dfs starting from the root.
     
@@ -29,7 +23,7 @@
     
     \lstinputlisting{./solutions/DataStructures/Segtree/persistent_segtree.cpp}
     \section{update é uma PA}
-    Nessa seg o update é uma PA que começa com $V$ na posição $L$ e vira $V + R-L+1$ na posição $R$.
+    \tab Nessa seg o update é uma PA que começa com $V$ na posição $L$ e vira $V + R-L+1$ na posição $R$.
     A sacada é que da pra juntar multiplas PAs só aumento o coeficiente $r$, lembrando que:
     
     $an = a_1 + r \cdot (n-1)$
@@ -39,14 +33,13 @@
     \lstinputlisting{./solutions/DataStructures/Segtree/pasegtree.cpp}
     \section{Sub-segmento contiguo com maior soma}
 
-    Nessa a query é achar o subsegmento contíguo com maior soma numa range $[L,R]$
-
+    \tab Nessa a query é achar o subsegmento contíguo com maior soma numa range $[L,R]$.
     O update é mudar o valor de um ponto.
     \lstinputlisting{./solutions/DataStructures/Segtree/subarrayseg.cpp}
 
     \section{Contar minimos (união de area de retangulos)}
 
-    We would like a data structure that can efficiently handle two types of operations:
+    \tab We would like a data structure that can efficiently handle two types of operations:
 
     Update index $i$ to value $v$
     Report the minimum and the number of occurences of the minimum on a range $[l, r]$
@@ -78,7 +71,7 @@
     \lstinputlisting{./solutions/DataStructures/Segtree/MergeSortTree.cpp}  
     
     \section{Segment Tree Beats}
-    updates:
+    \tab Updates:
     
     min(a[i],x) - range l - r
     
@@ -93,14 +86,13 @@
     $O(N*log(N)^2)$
     \lstinputlisting{./solutions/DataStructures/Segtree/segbeats.cpp}
     \section{Wavelet Tree}
-    Encontra o kth menor valor num range [L,R] com queries em O(log n)
+    \tab Encontra o kth menor valor num range [L,R] com queries em O(log n).
     
-    Espaço e pre-processamento é em O(n log n)
+    Espaço e pre-processamento é em O(n log n).
     
-    isso é do kataki e tecnicamente é uma seg tree
+    Isso é do kataki e tecnicamente é uma seg tree.
     
     \textbf{p} é o L e \textbf{q} é o R na query
-    
     o resto aceita que funciona
     
     \lstinputlisting{./solutions/DataStructures/Segtree/wavelet_tree.cpp}

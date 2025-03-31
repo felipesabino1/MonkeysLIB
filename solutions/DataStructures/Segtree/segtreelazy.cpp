@@ -1,74 +1,110 @@
-const int N = 200100;
-const ll emp = 0; //NULL VALUE
-
-ll a[N],tree[N << 2], lazy[N << 2];
-
-ll f(ll a, ll b){return a+b;}//function
-
-//node p is always ok
-void push(int p, int tl, int tr)
-{
-    if(tl == tr || lazy[p] == emp)
-        return;
-    int tmid = (tl+tr) >> 1;
-
-    //solve propagations
-    tree[lef(p)] = f(tree[lef(p)], (ll)(tmid-tl+1) * lazy[p]);
-    tree[rig(p)] = f(tree[rig(p)], (ll)(tr-tmid) * lazy[p]);
-    
-    //update lazy
-    lazy[lef(p)] = f(lazy[lef(p)], lazy[p]);
-    lazy[rig(p)] = f(lazy[rig(p)], lazy[p]);
-    
-    //clean lazy
-    lazy[p] = emp;
-}
-
-void build(int p, int tl, int tr)
-{
-    if(tl == tr)
-    {
-        tree[p] = a[tl];
-        return;
+/*
+    Indexado de 1.
+    Responde uma operacao num subarray, suporta update em range
+    Init: O(4*N).
+    Query: O(4*log(N))
+    Update: O(4*log(N))
+*/
+template <class TT = int>
+struct Seg{
+    // inicializar so o tamanho da seg, n fazer o build
+    Seg(int n_) : n(n_){
+        seg.resize(n<<2);
+        lazy.resize(n<<2);
     }
-    int tmid = (tl + tr) >> 1;
-    build(lef(p), tl, tmid);
-    build(rig(p), tmid+1, tr);
-    tree[p] = f(tree[lef(p)], tree[rig(p)]);
-    
-}
 
-void updt(int p, int tl, int tr, int l, int r, ll v)
-{
-    if(l > r)
-        return ;
-    if(tl == l && tr == r){
-        tree[p] = f(tree[p], (ll)(tr-tl+1) * v);
-
-        lazy[p] = f(lazy[p], v);
-        return;
+    // fazer o build da estrutura
+    void init(int n_new, TT * a){
+        n = n_new;
+        vec = a;
+        build(1,1,n);
     }
-    //push if go down
-    push(p,tl,tr);
 
-    int tmid = (tl+tr) >> 1;
-    updt(lef(p), tl, tmid, l, min(r,tmid), v);
-    updt(rig(p), tmid+1, tr, max(l,tmid+1), r, v);
-    tree[p] = f(tree[lef(p)], tree[rig(p)]);
+    // o que vai ter dentro do no de cada seg
+    struct node{
+
+        bool operator ==(const node &ot)const{
+            return true;
+        }
+    };
+    // o que vai ter dentro do no de cada lazy
+    struct sono{
+
+        bool operator ==(const sono &ot)const{
+            return true;
+        }
+    };
+
+    TT * vec;
+    int n;
+    // no nulo
+    const node off = {};
+    // lazy nula
+    const sono off_lazy = {}; 
+    vector<node> seg;
+    vector<sono> lazy;
+    // operacao de unir dois nos
+    node merge(node x, node y){
+        if(x == off) return y;
+        if(y == off) return x;
     
-}
+    }
 
+    // coisar a lazy pra baixo
+    void push(int u,int tl,int tr){
+        if(tl == tr || lazy[u] == off_lazy) return;
+        // atualizar os filhos
 
+        // atualizar as lazies dos filhos
 
-ll query(int p, int tl, int tr, int l, int r)
-{
-    if(l > r)
-        return emp;
-    if(tl == l && tr == r)
-        return tree[p];
-    //push if go down
-    push(p,tl,tr);
-    int tmid = (tl+tr) >> 1;
-    return f(query(lef(p), tl, tmid, l, min(r,tmid)),
-        query(rig(p), tmid+1, tr, max(l,tmid+1), r));
-}
+        lazy[u] = off_lazy;
+    }
+
+    // inicializar a seg
+    void build(int u,int tl,int tr){
+        if(tl == tr){
+            // inicializar os caras bases
+            seg[u] = {};
+            lazy[u] = off_lazy;
+            return;
+        }
+        int tmid = tl + tr;
+        tmid >>= 1;
+        build(lef(u), tl, tmid);
+        build(rig(u), tmid+1, tr);
+        seg[u] = merge(seg[lef(u)], seg[rig(u)]);
+        lazy[u] = off_lazy;
+    }
+
+    // consulta em range
+    node query_(int u,int tl,int tr,int l, int r){
+        if(l > r) return off;
+        if(tl == l && tr == r) return seg[u];
+        push(u, tl, tr);
+        int tmid= tl + tr;
+        tmid >>= 1;
+        return merge(query_(lef(u), tl, tmid, l, min(tmid,r)), query_(rig(u), tmid+1, tr, max(tmid+1,l), r));
+    }
+    node query(int l, int r){
+        return query_(1, 1, n, l, r);
+    }
+
+    // update em range
+    void update_(int u, int tl, int tr, int l, int r, TT x){
+        if(l > r) return;
+        if(tl == l && tr == r){
+            // atualizar a seg e o lazy
+            
+            return;
+        }
+        push(u, tl, tr);
+        int tmid = tl + tr;
+        tmid >>= 1;
+        update_(lef(u), tl, tmid, l, min(tmid,r), x);
+        update_(rig(u), tmid+1, tr, max(tmid+1,l), r, x);
+        seg[u] = merge(seg[lef(u)], seg[rig(u)]);
+    }
+    void update(int l, int r, TT x){
+        update_(1, 1, n, l, r, x);
+    }
+};

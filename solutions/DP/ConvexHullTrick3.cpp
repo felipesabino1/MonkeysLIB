@@ -11,35 +11,50 @@ ll dp[N];
 bool is_leaf[N];
 vector< int > adj[N];
 
-bool Q;
-struct Line {
-    mutable ll k, m, p;
-    bool operator<(const Line& o) const {
-        return Q ? p < o.p : k < o.k;
+template <class TT = ll>
+struct Line{
+    // coef angular, linear, criterio de comparacao
+    mutable TT k,m,p;
+    // aqui eu quero sempre deixar os com menor coef angular mais pra frente, conc pra baixo
+    bool operator <(const Line & o) const{
+        return k>o.k;
+    }
+    bool operator <(const TT o) const{
+        return p<o;
     }
 };
-struct LineContainer : multiset<Line> {
-    const ll inf = LLONG_MAX;
-    ll div(ll a, ll b){
-        return a / b - ((a ^ b) < 0 && a % b);
+struct CHT : multiset<Line,less<>>{
+    static const TT inf = std::numerical_limit<TT>::max();
+    TT div(TT a, TT b){
+        return a/b-((a^b) < 0 && a%b);
     }
-    bool isect(iterator x, iterator y) {
-        if (y == end()) { x->p = inf; return false; }
-        if (x->k == y->k) x->p = x->m > y->m ? inf : -inf;
-        else x->p = div(y->m - x->m, x->k - y->k);
+ 
+    // x eh melhor que y?
+    bool isect(iterator x, iterator y){
+        if(y == end()){
+            x->p=inf;
+            return false;
+        }
+        if(x->k == y->k)
+            x->p= x->m <= y->m ? inf : -inf;
+        else
+            x->p=div(y->m-x->m,x->k-y->k);
         return x->p >= y->p;
     }
-    void add(ll k, ll m) {
-        auto z = insert({k, m, 0}), y = z++, x = y;
-        while (isect(y, z)) z = erase(z);
-        if (x != begin() && isect(--x, y)) isect(x, y = erase(y));
-        while ((y = x) != begin() && (--x)->p >= y->p)
-            isect(x, erase(y));
+    void add(TT k, TT m){
+        auto z= insert({k,m,0});
+        auto y=z++;
+        auto x=y;
+        while(insect(y,z)) z=erase(z);
+        if(x != begin() && insect(--x,y))
+            insect(x,y=erase(y));
+        while((y=x) != begin() && (--x)->p >= y->p)
+            insect(x,erase(y));
     }
-    ll query(ll x) {
-        assert(!empty());
-        Q = 1; auto l = *lower_bound({0,0,x}); Q = 0;
-        return l.k * x + l.m;
+    TT query(TT x){
+		assert(!empty());
+        auto ans=lower_bound(x);
+        return ans->k*x+ans->m;
     }
 };
 
@@ -71,7 +86,7 @@ int dfs(int u, int ft){
 	return subtree[u];
 }
 
-void dfs1(int u, int ft, LineContainer &cur){
+void dfs1(int u, int ft, CHT &cur){
 	if(is_leaf[u]){
 		dp[u] = 0LL;
 		cur.add(-b[u], -dp[u]);
@@ -135,7 +150,7 @@ int main(){
 		adj[vi].push_back(ui);
 	}
 
-	LineContainer cur;
+	CHT cur;
 	dfs(1, 1);
 	dfs1(1, 1, cur);
 

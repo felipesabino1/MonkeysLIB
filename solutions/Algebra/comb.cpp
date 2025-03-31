@@ -1,4 +1,4 @@
-struct Comb{
+    struct Comb{
     vector<ll> fato,fatoinv;
     vector<vector<ll>> tomatoma;
 
@@ -30,6 +30,10 @@ struct Comb{
         for(int i=0; i<=m; i++) tomatoma[0][i]=0;
         for(int i=0; i<=n; i++) tomatoma[i][0]=1%mod;
         for(int i=1; i<=n; i++) for(int j=1; j<=m; j++) tomatoma[i][j] = (tomatoma[i-1][j-1] + tomatoma[i-1][j])%mod;
+    }
+
+    ll inv(ll a){
+        return fexp(a,mod-2);
     }
 
     ll fexp(ll a, ll b){
@@ -71,6 +75,14 @@ struct Comb{
             ans=ans*fatinv(k)%mod;
             ans=ans*fatinv(n-k)%mod;
         }
+        return ans;
+    }
+
+    //Count how to label N + K pairs of parentheses with K left ones already fixed 
+    //(k=0 means normal catalan)
+    ll catalan(ll n, ll k){
+        ll ans = (k+1) * toma(2*n + k, n) % mod;
+        ans = ans * inv(n+k+1) % mod;
         return ans;
     }
 };

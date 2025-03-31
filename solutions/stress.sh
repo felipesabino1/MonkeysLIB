@@ -1,20 +1,21 @@
 #!/bin/bash
 
-// Para uma solucao apenas:
-
 make brute
 make gen
-make solution
+make at # codigo que muda
 
-for((c = 0; c <= 500; c++)); do
+while true; do
     ./gen 2 > in
-    start = $(date +%s)
-    ./solution < in > out
-    end = $(date +%s)
+    
+    start=$(date +%s)
+    ./at < in > out
+    end=$(date +%s)
+
     echo "Elapsed Time in test $c: $(($end - $start)) seconds."
     ./brute < in > aout
     diff -B out aout > /dev/null || break
-    echo "Passou no caso $c."
+    echo "Passou no caso."
+    cat out
 done
 
 echo "WA on the following case:"

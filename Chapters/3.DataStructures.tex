@@ -1,7 +1,7 @@
 \chapter{Data Structures}
     
     \section{Ordered Set}
-    Same as Set, but with two new queries
+    \tab Same as Set, but with two new queries
     \begin{itemize}
         \item s.order\_of\_key$(k)$: Number of items strictly smaller than $k$ .
         \item s.find\_by\_order$(k)$: $k$-th element in a set (counting from zero).
@@ -13,48 +13,40 @@
     \section{Fenwick Tree}
     \subsection{Simples}
 
-    Coloquei só pelo drama do Dayllon.
-    Lembra q da pra usar pra maximo e minimo em \textbf{prefixo}. É possível usar em sufixo, é só inverter as operações da bit (soma vai pra query e subtração vai pra update).
-
     \lstinputlisting{./solutions/DataStructures/fenwicktree.cpp}
-
-    Versão que o Sabino gosta
-
-    \lstinputlisting{./solutions/DataStructures/fenwicktree2.cpp}
     
     \subsection{2D}
-    You are given an n×n grid representing the map of a forest. Each square is either empty or has a tree. Your task is to process q queries of the following types:
+    \tab You are given an n×n grid representing the map of a forest. Each square is either empty or has a tree. Your task is to process q queries of the following types:
     Change the state (empty/tree) of a square.
     How many trees are inside a rectangle in the forest?
 
     You can use the magic of Inclusion and Exclusion to solve this one.
     \lstinputlisting{./solutions/DataStructures/ForestQueriesII.cpp}
     \subsection{Fenwick Lifting}
-    Binary Search on a BIT in $O(log(N))$
+    \tab Binary Search on a BIT in $O(log(N))$
     
     \lstinputlisting{./solutions/DataStructures/fenwick_lifting.cpp}
     \section{Sparse Table}
     
-    \subsection{Simple Sparse table}
-    idempotent queries in $O(1)$, others $O(\log (n))$;
+    \subsection{Simple Sparse Table}
+    \tab Idempotent queries in $O(1)$, others $O(\log (n))$.
     \lstinputlisting{./solutions/DataStructures/sparsetable.cpp}
-    Versão que o Sabino gosta
-    \lstinputlisting{./solutions/DataStructures/sparsetable2.cpp}
+    \subsection{Disjoint Sparse Table}
+    \tab All queries in $O(1)$.
+    \lstinputlisting{./solutions/DataStructures/disjointsparsetable.cpp}
     % \subsection{2D Sparse table}
     % idempotent queries in $O(1)$;
     % CODA ESSE NEGOCIO, O CODIGO QUE TA LA USA $\ log2$ GUSTAVO, MDS DO CEU
     % \lstinputlisting{./solutions/DataStructures/2Dsparsetable.cpp}
     \section{SQRT Decomposition}
         \subsection{MO}
-        Nada de novo sob o sol, lembre q na aba de DSU persistente tem uma aplicação bem hard.
+        \tab Nada de novo sob o sol, lembre q na aba de DSU persistente tem uma aplicação bem hard.
          \lstinputlisting{./solutions/DataStructures/mo.cpp}
-         Versão 2, só existe aqui pq o Sabino gosta desse
-         \lstinputlisting{./solutions/DataStructures/mo2.cpp}
-        \subsection{MO com queries}
-         \lstinputlisting{./solutions/DataStructures/moupdate.cpp}
-         Um ponto importante é que se nós fizermos aquele esquema de decompor a query de path em arvore em uma query no range do euler tour, também podemos usar mo.
+        \subsection{MO com updates}
+        \tab Um ponto importante é que se nós fizermos aquele esquema de decompor a query de path em arvore em uma query no range do euler tour, também podemos usar mo.
+        \lstinputlisting{./solutions/DataStructures/moupdate.cpp}
         \subsection{Blocking}
-        We partition the array into blocks of size $\texttt{block\_size}=\lceil \sqrt{N} \rceil$. Each block stores the sum of elements within it, and allows for the
+        \tab We partition the array into blocks of size $\texttt{block\_size}=\lceil \sqrt{N} \rceil$. Each block stores the sum of elements within it, and allows for the
         creation of corresponding update and query operations.
         
         Update Queries: $\mathcal{O}(1)$
@@ -80,14 +72,15 @@
 
         \lstinputlisting{./solutions/DataStructures/blocking.cpp}
         \subsection{Blocking com cyclic shift}
-        Legendary Huron is a fan of beautiful fences. He defines the beauty of a sequence (l,r) is $max_{l \leq i \leq j \leq r}(a[j]-a[i])$
-        Queries
+        \tab Legendary Huron is a fan of beautiful fences. He defines the beauty of a sequence (l,r) is $max_{l \leq i \leq j \leq r}(a[j]-a[i])$. The
+        queries are:
         
-        Given three integers l, r, k, he will repaint the planks in the range [l,r]. With a[l] = k, a[l+1] = k+1 ...;
-        Given two integers l and r, returns the beauty.
+        Given three integers $l$, $r$, $k$, he will repaint the planks in the range $[l,r]$. With $a[l] = k$, $a[l+1] = k+1$, $\dots$, $a[r-1] = k + (r-l)$, $a[r] = k + (r-l+1)$;
+        
+        Given two integers $l$ and $r$, returns the beauty.
         \lstinputlisting{./solutions/DataStructures/sqrtdecomp.cpp}
         \subsection{Batching}
-        Maintain a "buffer" of the latest updates (up to $\sqrt N$). The answer for each
+        \tab Maintain a "buffer" of the latest updates (up to $\sqrt N$). The answer for each
         sum query can be calculated with prefix sums and by examining each update within
         the buffer. When the buffer gets too large ($\ge \sqrt N$), clear it and
         recalculate prefix sums.
@@ -95,26 +88,26 @@
         \lstinputlisting{./solutions/DataStructures/batching.cpp}
         
     \section{Treap}
-    Basicamente é uma estrutura que dá pra fazer um monte de coisa com "pouco"  código. A operação reverse é a + roubada.
+    \tab Basicamente é uma estrutura que dá pra fazer um monte de coisa com "pouco"  código. A operação reverse é a + roubada.
     
     \lstinputlisting{./solutions/DataStructures/Treap.cpp}
 
     \section{DSU}
-    There are multiples implementations here, with different focuses.
+    \tab There are multiples implementations here, with different focuses.
 
     \subsection{Persistent DSU}
-    First one: Just an DSU such that u can ask who was my parent in time $t$.
+    \tab First one: Just an DSU such that u can ask who was my parent in time $t$.
     \lstinputlisting{./solutions/DataStructures/dsu_rollback_1.cpp}
 
     
     \subsection{DSU with rollback}
-    Second: an DSU such that u roll back last operation.
+    \tab Second: an DSU such that u roll back last operation.
     \lstinputlisting{./solutions/DataStructures/dsu_rollback_2.cpp}
 
-    Now, some crazy applications.
+    \tab Now, some crazy applications.
     \subsection{Connected Components With Segments}
     
-    First one, given some set of edges, answer multiples queries. For each query answer how many connected components are there, if u use the edges in range (l,r).
+    \tab First one, given some set of edges, answer multiples queries. For each query answer how many connected components are there, if u use the edges in range (l,r).
 
     The solution does an approach with mo and dsu with rollback. The main ideia is:
 
@@ -136,7 +129,7 @@
 
     \subsection{Dynamic Connectivity Offline}
 
-    Last application. solve those queries:
+    \tab Last application. solve those queries:
     \begin{itemize}
         \item add an edge $u - v$
         \item remove an edge $u - v$
@@ -154,13 +147,6 @@
 
     \subsection{DSU with Small to Large}
 
-    When you have DSU and besides the representative thing, you may have other information about the groups, useful to solve queries about unions.
+    \tab When you have DSU and besides the representative thing, you may have other information about the groups, useful to solve queries about unions.
 
     \lstinputlisting{./solutions/DataStructures/DSU_SMOL.cpp}
-    
-    
-
-    
-    
-    
-    

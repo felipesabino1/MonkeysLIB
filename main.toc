@@ -1,0 +1,168 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {chapter}{\numberline {I}Begin}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Who did this}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}tips}{5}{section.1.2}%
+\contentsline {section}{\numberline {1.3}template - makefile - terminaltricks}{7}{section.1.3}%
+\contentsline {section}{\numberline {1.4}math formulas}{9}{section.1.4}%
+\contentsline {section}{\numberline {1.5}Stress Test}{9}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}Vector Generator}{10}{subsection.1.5.1}%
+\contentsline {subsection}{\numberline {1.5.2}Tree Generator}{11}{subsection.1.5.2}%
+\contentsline {chapter}{\numberline {II}Algebra}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Inteiro Modular}{13}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Matrix Power}{14}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Graph Paths I}{14}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Graph Paths II}{15}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}FFT}{16}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Simple FFT}{16}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}FFT modular (NTT)}{19}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}FFT To solve String with Wildcards}{21}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}FWHT (fft using xor/and/or)}{25}{subsection.2.3.4}%
+\contentsline {section}{\numberline {2.4}Gauss}{26}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Markov Chains}{26}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Modular 2 (bitset)}{28}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Matrix rank}{30}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Xor Basis}{32}{subsection.2.4.4}%
+\contentsline {section}{\numberline {2.5}Chinese Remainder Theorem}{32}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}Algorithm}{32}{subsection.2.5.1}%
+\contentsline {subsection}{\numberline {2.5.2}Lucas Theorem}{33}{subsection.2.5.2}%
+\contentsline {section}{\numberline {2.6}Simplex}{35}{section.2.6}%
+\contentsline {section}{\numberline {2.7}GCD Array Trick}{36}{section.2.7}%
+\contentsline {section}{\numberline {2.8}Implementation of Polynomials}{37}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Combinatorial}{38}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Derangements}{40}{subsection.2.9.1}%
+\contentsline {section}{\numberline {2.10}Lagrange Interpolation}{40}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Discrete Log}{42}{section.2.11}%
+\contentsline {section}{\numberline {2.12}Nelsi's anotations}{43}{section.2.12}%
+\contentsline {subsection}{\numberline {2.12.1}Kaplansky's Lemma}{43}{subsection.2.12.1}%
+\contentsline {subsubsection}{Lemma 1}{43}{section*.2}%
+\contentsline {subsubsection}{Lemma 2}{44}{section*.3}%
+\contentsline {subsection}{\numberline {2.12.2}Divisor Analysis - CSES}{44}{subsection.2.12.2}%
+\contentsline {subsubsection}{Number of Divisors}{44}{section*.4}%
+\contentsline {subsubsection}{Sum of divisors}{44}{section*.5}%
+\contentsline {subsubsection}{Product of divisors}{44}{section*.6}%
+\contentsline {subsection}{\numberline {2.12.3}Bracket Sequences II - CSES}{44}{subsection.2.12.3}%
+\contentsline {section}{\numberline {2.13}Multiplicative Functions}{45}{section.2.13}%
+\contentsline {subsection}{\numberline {2.13.1}Mobius Inversion}{46}{subsection.2.13.1}%
+\contentsline {chapter}{\numberline {III}Data Structures}{49}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Ordered Set}{49}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Fenwick Tree}{49}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Simples}{49}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}2D}{50}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Fenwick Lifting}{51}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Sparse Table}{52}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Simple Sparse Table}{52}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Disjoint Sparse Table}{53}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}SQRT Decomposition}{55}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}MO}{55}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}MO com updates}{56}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}Blocking}{58}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Blocking com cyclic shift}{59}{subsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.4.5}Batching}{62}{subsection.3.4.5}%
+\contentsline {section}{\numberline {3.5}Treap}{62}{section.3.5}%
+\contentsline {section}{\numberline {3.6}DSU}{64}{section.3.6}%
+\contentsline {subsection}{\numberline {3.6.1}Persistent DSU}{64}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}DSU with rollback}{65}{subsection.3.6.2}%
+\contentsline {subsection}{\numberline {3.6.3}Connected Components With Segments}{65}{subsection.3.6.3}%
+\contentsline {subsection}{\numberline {3.6.4}Dynamic Connectivity Offline}{67}{subsection.3.6.4}%
+\contentsline {subsection}{\numberline {3.6.5}DSU with Small to Large}{69}{subsection.3.6.5}%
+\contentsline {chapter}{\numberline {IV}Segment Tree}{73}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Sem/Com Lazy}{73}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Implicita}{75}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Implicita com lazy}{75}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Persistente}{76}{section.4.4}%
+\contentsline {section}{\numberline {4.5}update é uma PA}{78}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Sub-segmento contiguo com maior soma}{80}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Contar minimos (união de area de retangulos)}{80}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Merge Sort Tree}{82}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Segment Tree Beats}{83}{section.4.9}%
+\contentsline {section}{\numberline {4.10}Wavelet Tree}{87}{section.4.10}%
+\contentsline {chapter}{\numberline {V}Dynammic Programming}{89}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Fast Knapsack 3k trick}{89}{section.5.1}%
+\contentsline {section}{\numberline {5.2}SOS DP}{91}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Permutation Trick}{93}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Open Interval Trick}{94}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Dp Optimizations}{94}{section.5.5}%
+\contentsline {subsection}{\numberline {5.5.1}D\&C}{95}{subsection.5.5.1}%
+\contentsline {subsection}{\numberline {5.5.2}Knuth Optimization}{96}{subsection.5.5.2}%
+\contentsline {subsection}{\numberline {5.5.3}Convex Hull Trick}{96}{subsection.5.5.3}%
+\contentsline {subsubsection}{Convex Hull Trick 1}{96}{section*.8}%
+\contentsline {subsubsection}{Convex Hull Trick 2}{97}{section*.9}%
+\contentsline {subsubsection}{Convex Hull Trick 3 (Online Queries)}{99}{section*.10}%
+\contentsline {section}{\numberline {5.6}Steiner Tree DP}{101}{section.5.6}%
+\contentsline {chapter}{\numberline {VI}String}{103}{chapter.6}%
+\contentsline {section}{\numberline {6.1}String Hash}{103}{section.6.1}%
+\contentsline {subsection}{\numberline {6.1.1}Simple Hash}{103}{subsection.6.1.1}%
+\contentsline {subsection}{\numberline {6.1.2}Hash 2D$_{\text {ayllon}}$}{104}{subsection.6.1.2}%
+\contentsline {subsection}{\numberline {6.1.3}Hash with Updates}{106}{subsection.6.1.3}%
+\contentsline {section}{\numberline {6.2}Suffix Array}{108}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Suffix Automaton}{109}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Suffix Tree}{112}{section.6.4}%
+\contentsline {section}{\numberline {6.5}Palindromic Tree}{113}{section.6.5}%
+\contentsline {section}{\numberline {6.6}Minimal Rotation}{116}{section.6.6}%
+\contentsline {section}{\numberline {6.7}Aho Corasick}{116}{section.6.7}%
+\contentsline {section}{\numberline {6.8}Trie}{117}{section.6.8}%
+\contentsline {chapter}{\numberline {VII}Graph}{119}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Flow}{119}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Teoremas de Fluxo}{119}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Dinic}{120}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}MinCostMaxFlow}{121}{subsection.7.1.3}%
+\contentsline {section}{\numberline {7.2}Matching}{123}{section.7.2}%
+\contentsline {subsection}{\numberline {7.2.1}HopCroft Karp}{123}{subsection.7.2.1}%
+\contentsline {subsection}{\numberline {7.2.2}Bipartide Weighted Hungarian Method}{125}{subsection.7.2.2}%
+\contentsline {subsection}{\numberline {7.2.3}General Graph (Edmonds Blossom)}{127}{subsection.7.2.3}%
+\contentsline {section}{\numberline {7.3}Bellman Ford}{130}{section.7.3}%
+\contentsline {section}{\numberline {7.4}2-SAT}{131}{section.7.4}%
+\contentsline {section}{\numberline {7.5}Componentes Fortemente Conexas}{132}{section.7.5}%
+\contentsline {section}{\numberline {7.6}Stable Marriage}{134}{section.7.6}%
+\contentsline {section}{\numberline {7.7}Planar Graphs}{135}{section.7.7}%
+\contentsline {section}{\numberline {7.8}Dominator Tree}{135}{section.7.8}%
+\contentsline {section}{\numberline {7.9}Chinese Postman Problem}{137}{section.7.9}%
+\contentsline {section}{\numberline {7.10}Some Bridge related topics}{138}{section.7.10}%
+\contentsline {subsection}{\numberline {7.10.1}Finding Bridges}{138}{subsection.7.10.1}%
+\contentsline {subsection}{\numberline {7.10.2}Articulation Points}{139}{subsection.7.10.2}%
+\contentsline {subsection}{\numberline {7.10.3}Block Cut Tree}{140}{subsection.7.10.3}%
+\contentsline {subsection}{\numberline {7.10.4}Two Edge Connected Components}{143}{subsection.7.10.4}%
+\contentsline {chapter}{\numberline {VIII}Trees}{145}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Diameter}{145}{section.8.1}%
+\contentsline {section}{\numberline {8.2}LCA}{145}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Euler tour tree}{148}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Small to Large}{148}{section.8.4}%
+\contentsline {section}{\numberline {8.5}HLD}{148}{section.8.5}%
+\contentsline {subsection}{\numberline {8.5.1}Can you answer these queries VII}{151}{subsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.5.2}Can you answer these queries VI}{155}{subsection.8.5.2}%
+\contentsline {subsection}{\numberline {8.5.3}HLD with subtree queries}{160}{subsection.8.5.3}%
+\contentsline {section}{\numberline {8.6}Centroid Decomposition}{161}{section.8.6}%
+\contentsline {section}{\numberline {8.7}Tree Isomorphism}{168}{section.8.7}%
+\contentsline {section}{\numberline {8.8}Virtual Tree}{170}{section.8.8}%
+\contentsline {section}{\numberline {8.9}Link Cut Tree}{172}{section.8.9}%
+\contentsline {chapter}{\numberline {IX}Geometry}{175}{chapter.9}%
+\contentsline {section}{\numberline {9.1}Simple Geometry}{175}{section.9.1}%
+\contentsline {subsection}{\numberline {9.1.1}Points and Lines}{175}{subsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.1.2}Circles}{177}{subsection.9.1.2}%
+\contentsline {section}{\numberline {9.2}Convex Hull}{180}{section.9.2}%
+\contentsline {subsection}{\numberline {9.2.1}Rotation Calipers}{180}{subsection.9.2.1}%
+\contentsline {section}{\numberline {9.3}Line Sweep}{182}{section.9.3}%
+\contentsline {subsection}{\numberline {9.3.1}Points Inside Triangles}{182}{subsection.9.3.1}%
+\contentsline {subsection}{\numberline {9.3.2}Ranking Problem}{187}{subsection.9.3.2}%
+\contentsline {subsection}{\numberline {9.3.3}Balls Falls and Segments}{189}{subsection.9.3.3}%
+\contentsline {subsection}{\numberline {9.3.4}Checking Points Inside Convex Polygon}{193}{subsection.9.3.4}%
+\contentsline {subsubsection}{Online}{193}{section*.11}%
+\contentsline {subsection}{\numberline {9.3.5}Radial Sweep}{194}{subsection.9.3.5}%
+\contentsline {subsection}{\numberline {9.3.6}Radial Sweep sem Double}{196}{subsection.9.3.6}%
+\contentsline {section}{\numberline {9.4}Minimum Perimeter Triangle}{197}{section.9.4}%
+\contentsline {chapter}{\numberline {X}Miscellaneous}{201}{chapter.10}%
+\contentsline {section}{\numberline {10.1}Game Theory}{201}{section.10.1}%
+\contentsline {subsection}{\numberline {10.1.1}Nim Multiplication}{202}{subsection.10.1.1}%
+\contentsline {section}{\numberline {10.2}Binary Search}{204}{section.10.2}%
+\contentsline {subsection}{\numberline {10.2.1}Parallel Binary Search}{204}{subsection.10.2.1}%
+\contentsline {section}{\numberline {10.3}Big Num}{205}{section.10.3}%
+\contentsline {subsection}{\numberline {10.3.1}D\&C for Multiplyng two big numbers}{207}{subsection.10.3.1}%
+\contentsline {section}{\numberline {10.4}Bitsets}{208}{section.10.4}%
+\contentsline {section}{\numberline {10.5}Built in functions}{208}{section.10.5}%
+\contentsline {section}{\numberline {10.6}Priority Queue and Set Comparators}{209}{section.10.6}%
+\contentsline {section}{\numberline {10.7}Lambda Expressions}{210}{section.10.7}%
+\contentsline {section}{\numberline {10.8}Fast input output}{210}{section.10.8}%
+\contentsline {section}{\numberline {10.9}Trick for faster Unordered Map}{211}{section.10.9}%
+\contentsline {section}{\numberline {10.10}Faster Hash Table}{211}{section.10.10}%
+\contentsline {section}{\numberline {10.11}StringStream}{212}{section.10.11}%
+\contentsline {section}{\numberline {10.12}Karmarkar-Karp}{213}{section.10.12}%
