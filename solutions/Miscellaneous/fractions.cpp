@@ -79,12 +79,16 @@ struct Frac{
         TT lcm = den/__gcd(den,o.den)*o.den;
         num = (lcm/den*num) + (lcm/o.den*o.num);
         den = lcm;
+        TT g = __gcd(num,den);
+        num/=g, den/=g;
         fixSig(num,den);
     }
     void operator -=(const Frac & o){
         TT lcm = den/__gcd(den,o.den)*o.den;
         num = (lcm/den*num) + (lcm/o.den*o.num);
         den = lcm;
+        TT g = __gcd(num,den);
+        num/=g, den/=g;
         fixSig(num,den);
     }
 
