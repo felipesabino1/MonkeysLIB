@@ -137,6 +137,7 @@ vpt lineIsect(const line& a, const line& b) {
 }
 
 // point in interior of both segments a and b, if it exists
+// a point of intersection oonly
 vpt strictIsect(const line& a, const line& b) {
 	T a0 = cross(a.ft,a.sd,b.ft), a1 = cross(a.ft,a.sd,b.sd); 
 	T b0 = cross(b.ft,b.sd,a.ft), b1 = cross(b.ft,b.sd,a.sd); 
@@ -146,6 +147,7 @@ vpt strictIsect(const line& a, const line& b) {
 }
 
 // intersection of segments, a and b may be degenerate
+// check more points, one segment inside other
 vpt segIsect(const line& a, const line& b) { 
 	vpt v = strictIsect(a,b); if (!v.empty()) return v;
 	set<pt> s;
